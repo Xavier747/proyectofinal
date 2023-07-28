@@ -1,0 +1,26 @@
+:root{
+    --rojo: #e50914;
+    --fondo: #141414;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: var(--fondo);
+    font-family: 'Open Sans', sans-serif;
+}
+.conteiner{
+    width: 90%;
+    margin: auto;
+}
+.pelicula-principal{
+    font-size: 5px;
+    min-height: 40.62em;
+    color: #fff;
+    background: linear-gradient(#E50914 0%,#000 100%) url(../img/pelicula_3.jpg);
+    background-position: center;
+
+    
+}

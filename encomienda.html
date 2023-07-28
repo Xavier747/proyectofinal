@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Encomiendas</title>
+    <link rel="stylesheet" href="css/estilos8.css">
+    <style>
+        /* Estilos para el botón "Regresar" */
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Formulario de Encomiendas</h1>
+        <div class="box">
+            <form id="formulario">
+                <label for="tipo_encomienda">Tipo de Encomienda:</label>
+                <select id="tipo_encomienda" name="tipo_encomienda">
+                    <option value="carta">Carta</option>
+                    <option value="paquete">Paquete</option>
+                    <option value="sobre">Sobre</option>
+                    <!-- Agrega más opciones de tipos de encomienda -->
+                </select>
+
+                <label for="peso">Peso (kg):</label>
+                <input type="number" id="peso" name="peso" step="0.1" min="0.1">
+
+                <label for="distancia">Distancia (km):</label>
+                <input type="number" id="distancia" name="distancia" min="1">
+
+                <input type="submit" value="Calcular Precio">
+            </form>
+
+            <div class="resultado" id="resultado">
+                <h2>Resultados:</h2>
+                <p id="precio_resultado">-</p>
+            </div>
+            <a href="javascript:history.back()" class="back-button">Regresar</a>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript para calcular y mostrar el precio en el formulario
+        const formulario = document.getElementById('formulario');
+        const resultado = document.getElementById('resultado');
+        formulario.addEventListener('submit', calcularPrecio);
+
+        function calcularPrecio(event) {
+            event.preventDefault();
+
+            const tipoEncomienda = document.getElementById('tipo_encomienda').value;
+            const peso = parseFloat(document.getElementById('peso').value);
+            const distancia = parseInt(document.getElementById('distancia').value);
+
+            let tarifaPorKg = 0;
+            switch (tipoEncomienda) {
+                case 'carta':
+                    tarifaPorKg = 10;
+                    break;
+                case 'paquete':
+                    tarifaPorKg = 20;
+                    break;
+                case 'sobre':
+                    tarifaPorKg = 15;
+                    break;
+                // Agrega más casos para otros tipos de encomienda
+                default:
+                    tarifaPorKg = 0;
+            }
+
+            const precioTotal = tarifaPorKg * peso + 0.5 * distancia; // Cálculo de ejemplo
+
+            resultado.innerHTML = `El precio total para una encomienda de ${tipoEncomienda} con peso de ${peso} kg y distancia de ${distancia} km es: $${precioTotal}`;
+        }
+    </script>
+</body>
+</html>

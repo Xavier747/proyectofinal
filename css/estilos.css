@@ -1,0 +1,50 @@
+body{
+    background: radial-gradient(at top,rgb(171, 171, 194),rgb(92, 78, 78));
+}
+
+h1{
+    -webkit-text-stroke:2px rgb(236, 232, 232);
+    color:#111313af;
+}
+
+.bg-light {
+    background-color: #ffffffe3!important;
+}
+.btn-animado {
+    display: inline-block;
+    padding: 5px 5px;
+    border-radius: 9px;
+    box-shadow: 0 0 12px 1px rgba(0, 0, 0, .15);
+    background-color: #fff;
+    border: 1px solid #2CA8B0;
+    color: #2CA8B0;
+    cursor: pointer;
+    transition: all ease-in 150ms;
+    overflow: hidden;
+}
+.btn-animado i {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1rem;
+    font-size: 1.7rem;
+    opacity: 1;
+}
+.btn-animado:hover {
+    background-color: #2CA8B0;
+    color: #fff;
+}
+.btn-animado:active {
+    background-color: #22848A;
+}
+
+.color-facebook {
+    border: 1px solid #3B69FF;
+    color: #3B69FF;
+}
+.color-facebook:hover {
+    background-color: #3B69FF;
+    color: #fff;
+}
+.color-facebook:active {
+    background-color: #3155C9;
+}

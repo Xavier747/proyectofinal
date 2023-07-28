@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Viajes con Precios</title>
+    <link rel="stylesheet" href="css/styless.css">
+    <style>
+        /* Estilos para el botón "Regresar" */
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Formulario de Viajes</h1>
+        <div class="box">
+            <form id="formulario">
+                <label for="destino">Destino:</label>
+                <select id="destino" name="destino">
+                    <option value="paris">París</option>
+                    <option value="roma">Roma</option>
+                    <option value="londres">Londres</option>
+                    <!-- Agrega más opciones de destinos -->
+                </select>
+
+                <label for="fecha">Fecha de Viaje:</label>
+                <input type="date" id="fecha" name="fecha">
+
+                <label for="cantidad_personas">Cantidad de Personas:</label>
+                <input type="number" id="cantidad_personas" name="cantidad_personas" min="1" max="10">
+
+                <input type="submit" value="Calcular Precio">
+            </form>
+
+            <div class="resultado" id="resultado">
+                <h2>Resultados:</h2>
+                <p id="precio_resultado">-</p>
+            </div>
+
+            <!-- Botón para regresar a la página anterior -->
+            <a href="javascript:history.back()" class="back-button">Regresar</a>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript para calcular y mostrar el precio en el formulario
+        const formulario = document.getElementById('formulario');
+        const resultado = document.getElementById('resultado');
+        formulario.addEventListener('submit', calcularPrecio);
+
+        function calcularPrecio(event) {
+            event.preventDefault();
+
+            const destino = document.getElementById('destino').value;
+            const fecha = document.getElementById('fecha').value;
+            const cantidadPersonas = document.getElementById('cantidad_personas').value;
+
+            // Aquí puedes realizar cálculos para obtener el precio en base a los datos ingresados
+
+            // Por ahora, simplemente mostraremos un mensaje con los datos seleccionados
+            const precio = 100 * cantidadPersonas; // Precio de ejemplo
+
+            resultado.innerHTML = `El precio total para ${cantidadPersonas} personas viajando a ${destino} en la fecha ${fecha} es: $${precio}`;
+        }
+    </script>
+</body>
+</html>
+
